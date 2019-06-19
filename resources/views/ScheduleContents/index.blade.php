@@ -10,9 +10,12 @@
         @endif
 
         <div class="row justify-content-center my-5">
+            @if($contents->isEmpty())
+                <p>You have no content, <a href="/content/create" class="">add new content here.</a></p>
 
+            @else
 
-            <h2>My content</h2>
+                <h2>My content</h2>
         </div>
 
 
@@ -48,41 +51,38 @@
             <div id="gallery" class="col-md gallery content-gallery mt-2  p-0">
 
 
-                @if($contents->isEmpty())
-                    <p>You have no content.</p>
-                @else
-                    @foreach($contents as $content)
+                @foreach($contents as $content)
 
-                        <div class="content float-left m-1 card ">
-                            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"
-                                    class="m-0 ">
-                                <div class="image-bg ">
-                                    <img href="/storage/{{$content->image}}" data-caption="{{$content->description}}"
-                                         data-width="1200" data-height="900" itemprop="contentUrl" id="photoswipe-img">
+                    <div class="content float-left m-1 card ">
+                        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"
+                                class="m-0 ">
+                            <div class="image-bg ">
+                                <img href="/storage/{{$content->image}}" data-caption="{{$content->description}}"
+                                     data-width="1200" data-height="900" itemprop="contentUrl" id="photoswipe-img">
 
-                                    <a href="/content/{{$content->id}}/edit" class="btn btn-light"
-                                       id="edit-btn">Edit</a>
-                                    <a href="#" class="btn btn-light" id="view-btn">View</a>
-                                    <img src="/storage/{{$content->image}}" itemprop="thumbnail" alt="Image description"
-                                         class="gallery-img">
+                                <a href="/content/{{$content->id}}/edit" class="btn btn-light"
+                                   id="edit-btn">Edit</a>
+                                <a href="#" class="btn btn-light" id="view-btn">View</a>
+                                <img src="/storage/{{$content->image}}" itemprop="thumbnail" alt="Image description"
+                                     class="gallery-img">
 
-                                </div>
-
-                            </figure>
-                            <div class="status m-1">
-                                @if($content->status === 'Published')
-                                    <i class="fa fa-calendar-check-o content-icon"></i>
-                                @elseif($content->status === 'Scheduled')
-                                    <i class="fa fa-calendar content-icon"></i>
-                                @else
-                                    <i class="fa fa-calendar-minus-o content-icon"></i>
-                                @endif
-                                <p> {{$content->status}}</p>
                             </div>
-                        </div>
 
-                    @endforeach
-                @endif
+                        </figure>
+                        <div class="status m-1">
+                            @if($content->status === 'Published')
+                                <i class="fa fa-calendar-check-o content-icon"></i>
+                            @elseif($content->status === 'Scheduled')
+                                <i class="fa fa-calendar content-icon"></i>
+                            @else
+                                <i class="fa fa-calendar-minus-o content-icon"></i>
+                            @endif
+                            <p> {{$content->status}}</p>
+                        </div>
+                    </div>
+
+                @endforeach
+
 
             </div>
 
@@ -140,12 +140,10 @@
                 </div>
             </div>
         </div>
+        @endif
     </div>
 
     {{ $contents->links() }}
 
-    <script>
 
-
-    </script>
 @endsection

@@ -9,33 +9,34 @@
             </div>
         @endif
 
+
         <div class="row justify-content-center my-5">
+            @if($contents->isEmpty())
+                <p>No content here yet.</p>
+            @else
 
-
-            <h2>All content</h2>
+                <h2>All content</h2>
         </div>
 
         <div class="row pt-5">
             <div id="gallery" class="gallery mx-5 mt-2 text-center">
 
-                @if($contents->isEmpty())
-                    <p>No content here yet.</p>
-                @else
-                    @foreach($contents as $content)
 
-                        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"
-                                class="content content-welcome m-2 thumbnail">
+                @foreach($contents as $content)
 
-                            <a href="/storage/{{$content->image}}" data-caption="{{$content->description}}"
-                               data-width="1200" data-height="900" itemprop="contentUrl" id="photoswipe-img"></a>
+                    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"
+                            class="content content-welcome m-2 thumbnail">
 
-                            <img src="/storage/{{$content->image}}" itemprop="thumbnail"
-                                 alt="Image description" class="gallery-img click-event">
+                        <a href="/storage/{{$content->image}}" data-caption="{{$content->description}}"
+                           data-width="1200" data-height="900" itemprop="contentUrl" id="photoswipe-img"></a>
 
-                        </figure>
+                        <img src="/storage/{{$content->image}}" itemprop="thumbnail"
+                             alt="Image description" class="gallery-img click-event">
 
-                    @endforeach
-                @endif
+                    </figure>
+
+                @endforeach
+
             </div>
         </div>
         <!-- Some spacing 😉 -->
@@ -90,7 +91,7 @@
 
             </div>
         </div>
-
+        @endif
     </div>
     {{ $contents->links() }}
 @endsection
