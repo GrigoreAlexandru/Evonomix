@@ -11,8 +11,9 @@ require('bootstrap');
 
 $(document).ready(function () {
     //initializare librarie tempusdominus
-    $('#datetimepicker1').datetimepicker(); // photoswipe
-
+    $('#datetimepicker1').datetimepicker(); 
+    
+    // photoswipe
     var container = [];
     $('#gallery').find('.content').each(function () {
         var $link = $(this).find('#photoswipe-img'),
