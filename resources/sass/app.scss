@@ -1,0 +1,111 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css');
+@import '~font-awesome/scss/font-awesome';
+@import 'photoswipe/main';
+@import 'photoswipe/default-skin/default-skin';
+// Variables
+@import 'variables';
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+
+.pswp__caption__center {
+  text-align: center;
+}
+
+.content {
+  display: inline-block;
+  width: 24%;
+
+}
+
+img {
+  width: 100%;
+}
+
+.spacer {
+  height: 5em;
+}
+
+
+.pagination {
+  justify-content: center;
+}
+
+.gallery figure {
+  position: relative;
+}
+
+#edit-btn {
+  position: absolute;
+  top: 50%;
+  left: 38%;
+  display: none;
+  z-index: 1;
+}
+
+#view-btn {
+  position: absolute;
+  top: 50%;
+  left: 52%;
+  display: none;
+  z-index: 1;
+}
+
+.gallery .image-bg {
+  background: black;
+}
+
+.content-gallery figure:hover img {
+  opacity: 0.5;
+}
+
+.gallery #photoswipe-img {
+  display: none;
+}
+
+.content-icon {
+  font-size: 18px;
+}
+
+.content p {
+  display: inline;
+}
+
+.content-welcome {
+  display: inline-block;
+  width: 32%;
+}
+
+.thumbnail {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.thumbnail img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: inherit;
+  width: 100%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.thumbnail img.portrait {
+  width: 100%;
+  height: auto;
+}
+
+.pswp__img {
+  object-fit: contain;
+}
